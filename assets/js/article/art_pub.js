@@ -103,8 +103,6 @@ $(function () {
                             // 跳转到列表页
                             location.href = '/article/art_list.html'
                         })
-
-
                     }
                 })
             })
