@@ -74,25 +74,26 @@
             </form>
         </div>
     </div>
+    
     <script type="text/html" id="tpl-cate">
-        <option value="">请选择文章类别</option>
+        <option value="">请选择文章分类</option>
         {{each data}}
         <option value="{{$value.Id}}">{{$value.name}}</option>
         {{/each}}
     </script>
+
     <script src="/assets/lib/layui/layui.all.js"></script>
     <script src="/assets/lib/jquery.js"></script>
-
+    <script src="/assets/lib/template-web.js"></script>
+    <!-- 自己的js -->
+    <script src="/assets/js/baseAPI.js"></script>
+    <script src="/assets/js/article/art_pub.js"></script>
     <!-- 富文本 -->
     <script src="/assets/lib/tinymce/tinymce.min.js"></script>
     <script src="/assets/lib/tinymce/tinymce_setup.js"></script>
     <!-- 图片裁剪 -->
     <script src="/assets/lib/cropper/Cropper.js"></script>
     <script src="/assets/lib/cropper/jquery-cropper.js"></script>
-    <script>
-        // 初始化富文本编辑器
-        initEditor()
-    </script>
 
 </body>
 
