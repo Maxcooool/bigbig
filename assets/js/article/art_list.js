@@ -48,7 +48,6 @@ $(function () {
             url: '/my/article/list',
             data: q,
             success: function (res) {
-                console.log(res)
                 if (res.status !== 0) {
                     return
                 }
@@ -126,5 +125,15 @@ $(function () {
             })
             layer.close(index);
         });
+    })
+
+    // 编辑文章
+    $('tbody').on('click', '.btn-edit', function () {
+        // console.log('ok')
+        var id = $(this).data('id')
+        location.href = '/article/art_edit.html?id=' + id
+
+        // // console.log(id)
+       
     })
 })
