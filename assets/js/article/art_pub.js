@@ -1,6 +1,9 @@
 $(function () {
     var layer = layui.layer
     var form = layui.form
+
+    // 设置表单提交节流阀
+    var flag = false
     // alert('okkk')
     // 初始化富文本编辑器
     initEditor()
@@ -12,7 +15,7 @@ $(function () {
             type: 'GET',
             url: '/my/article/cates',
             success: function (res) {
-                console.log(res)
+                // console.log(res)
                 if (res.status !== 0) {
                     return
                 }
@@ -68,6 +71,12 @@ $(function () {
     $('#form-pub').submit(function (e) {
         e.preventDefault()
 
+        // 节流阀,防止反复提交
+        if (flag) {
+            return layer.msg('请勿重复提交!')
+        }
+        flag = true
+
         var fd = new FormData($('#form-pub')[0])
         fd.append('state', state)
 
@@ -88,12 +97,9 @@ $(function () {
                     type: 'POST',
                     url: '/my/article/add',
                     data: fd,
-
                     contentType: false,
                     processData: false,
-
                     success: function (res) {
-                        // console.log(res)
                         if (res.status !== 0) {
                             return layer.msg(res.message)
                         }
